@@ -52,21 +52,19 @@ class ProblemTest {
 @Test
     public void czy_waga_i_wartosc_sie_zgadza() {
 
-        int testFinalValue=0;
-        int testFinalWeight=0;
 
         Problem backpack = new Problem(5,1,20,100);
         backpack.przedmioty.clear();
         backpack.przedmioty=new ArrayList<Item>();
         backpack.przedmioty.add(new Item(0,4,10));
-        backpack.przedmioty.add(new Item(1,2,10));
+        backpack.przedmioty.add(new Item(1,1,10));
         backpack.przedmioty.add(new Item(2,2,20));
-        backpack.przedmioty.add(new Item(3,1,40));
+        backpack.przedmioty.add(new Item(3,2,40));
         backpack.przedmioty.add(new Item(4,2,100));
         backpack.Solve(11);
 
         assertAll("Testy konkretnej instancji:",
-                ()-> assertEquals(540, backpack.finalvalue, "Wartosc nie zgadza sie z poprawnie wyliczona"),
+                ()-> assertEquals(510, backpack.finalvalue, "Wartosc nie zgadza sie z poprawnie wyliczona"),
                 ()-> assertEquals(11, backpack.finalweight, "Waga nie zgadza sie z poprawnie wyliczona")
         );
 

@@ -35,9 +35,16 @@ public class Problem {
             weight = rand.nextInt(upperBound - lowerBound) + lowerBound;
             value = rand.nextInt(upperBound - lowerBound) + lowerBound;
             przedmioty.add(new Item(i,weight, value));
-            System.out.println(przedmioty.get(i));
         }
 
+    }
+
+    public String Items_toString(){
+        String result="";
+        for (int i = 0; i < n; i++) {
+            result+=przedmioty.get(i);
+        }
+        return result;
     }
 
     public void Solve(int capacity){
