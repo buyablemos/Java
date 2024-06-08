@@ -1,12 +1,18 @@
 package org.example;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class GUI {
 
+
+    //Przedział do losowania przedmiotów
+    int upperBound = 20;
+    int lowerBound = 10;
 
     private JTextField seedTextField;
     private JTextField capacityTextField;
@@ -18,6 +24,8 @@ public class GUI {
 
 
     GUI() {
+
+
         this.button1.addActionListener(e -> {
             try {
 
@@ -33,7 +41,7 @@ public class GUI {
 
                 int seed = Integer.parseInt(textSeed);
 
-                Problem knapsack = new Problem(n, seed, 1, 10);
+                Problem knapsack = new Problem(n, seed, lowerBound, upperBound);
                 knapsack.Solve(capacity);
                 this.textArea1.setText(knapsack.Items_toString());
                 this.textArea2.setText(knapsack.toString());
@@ -64,10 +72,12 @@ public class GUI {
     private void $$$setupUI$$$() {
         panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
-        panel1.setBackground(new Color(-393221));
+        panel1.setBackground(new Color(-5723992));
+        panel1.setForeground(new Color(-11428072));
+        panel1.setVisible(true);
         button1 = new JButton();
         button1.setHideActionText(false);
-        button1.setText("Button");
+        button1.setText("Solve");
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
@@ -84,7 +94,6 @@ public class GUI {
         gbc.gridx = 1;
         gbc.gridy = 7;
         gbc.gridheight = 2;
-        gbc.anchor = GridBagConstraints.WEST;
         panel1.add(label1, gbc);
         final JLabel label2 = new JLabel();
         label2.setForeground(new Color(-16777216));
@@ -92,7 +101,6 @@ public class GUI {
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 1;
-        gbc.anchor = GridBagConstraints.WEST;
         panel1.add(label2, gbc);
         nTextField = new JTextField();
         nTextField.setText("");
@@ -122,13 +130,6 @@ public class GUI {
         gbc.weighty = 0.5;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panel1.add(capacityTextField, gbc);
-        final JPanel spacer1 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 2;
-        gbc.gridy = 1;
-        gbc.weightx = 1.0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel1.add(spacer1, gbc);
         final JLabel label3 = new JLabel();
         label3.setForeground(new Color(-16777216));
         label3.setText("N:");
@@ -144,7 +145,6 @@ public class GUI {
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 2;
-        gbc.anchor = GridBagConstraints.WEST;
         panel1.add(label4, gbc);
         final JLabel label5 = new JLabel();
         label5.setForeground(new Color(-16777216));
@@ -152,13 +152,12 @@ public class GUI {
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 4;
-        gbc.anchor = GridBagConstraints.WEST;
         panel1.add(label5, gbc);
         final JScrollPane scrollPane1 = new JScrollPane();
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 3;
-        gbc.gridheight = 11;
+        gbc.gridheight = 9;
         gbc.weightx = 10.0;
         gbc.weighty = 100.0;
         gbc.fill = GridBagConstraints.BOTH;
@@ -179,18 +178,29 @@ public class GUI {
         textArea1.setEditable(false);
         textArea1.setForeground(new Color(-16777216));
         scrollPane2.setViewportView(textArea1);
-        final JPanel spacer2 = new JPanel();
+        final JSeparator separator1 = new JSeparator();
+        separator1.setEnabled(true);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.gridheight = 8;
+        gbc.weightx = 2.0;
+        gbc.fill = GridBagConstraints.VERTICAL;
+        panel1.add(separator1, gbc);
+        final JSeparator separator2 = new JSeparator();
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 4;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel1.add(spacer2, gbc);
-        final JPanel spacer3 = new JPanel();
+        gbc.gridy = 6;
+        gbc.weightx = 1.0;
+        gbc.fill = GridBagConstraints.VERTICAL;
+        panel1.add(separator2, gbc);
+        final JSeparator separator3 = new JSeparator();
         gbc = new GridBagConstraints();
         gbc.gridx = 4;
         gbc.gridy = 2;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        panel1.add(spacer3, gbc);
+        gbc.weightx = 1.0;
+        gbc.fill = GridBagConstraints.VERTICAL;
+        panel1.add(separator3, gbc);
     }
 
     /**
@@ -209,4 +219,6 @@ public class GUI {
         frame.pack();
         frame.setVisible(true);
     }
+
+
 }
