@@ -69,7 +69,12 @@ public class DetailsPanel {
         wróćButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                JFrame frame = new JFrame("Aplikacja do sprawdzania kursów polskiej waluty");
+                frame.setContentPane(new MainPanel().$$$getRootComponent$$$());
+                frame.setPreferredSize(new Dimension(800, 600));
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
                 SwingUtilities.getWindowAncestor(detailsPanel).dispose();
             }
         });

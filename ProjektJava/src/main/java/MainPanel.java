@@ -59,6 +59,7 @@ public class MainPanel {
                     detailsFrame.setContentPane(detailsPanel.$$$getRootComponent$$$());
                     detailsFrame.pack();
                     detailsFrame.setVisible(true);
+                    SwingUtilities.getWindowAncestor(mainPanel).dispose();
                 } else if (EURRadioButton.isSelected()) {
                     JFrame detailsFrame = new JFrame("Okno ze szczegółami");
                     detailsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -66,6 +67,7 @@ public class MainPanel {
                     detailsFrame.setContentPane(detailsPanel.$$$getRootComponent$$$());
                     detailsFrame.pack();
                     detailsFrame.setVisible(true);
+                    SwingUtilities.getWindowAncestor(mainPanel).dispose();
                 } else if (JPYRadioButton.isSelected()) {
                     JFrame detailsFrame = new JFrame("Okno ze szczegółami");
                     detailsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -73,6 +75,7 @@ public class MainPanel {
                     detailsFrame.setContentPane(detailsPanel.$$$getRootComponent$$$());
                     detailsFrame.pack();
                     detailsFrame.setVisible(true);
+                    SwingUtilities.getWindowAncestor(mainPanel).dispose();
                 } else if (CHFRadioButton.isSelected()) {
                     JFrame detailsFrame = new JFrame("Okno ze szczegółami");
                     detailsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -80,6 +83,7 @@ public class MainPanel {
                     detailsFrame.setContentPane(detailsPanel.$$$getRootComponent$$$());
                     detailsFrame.pack();
                     detailsFrame.setVisible(true);
+                    SwingUtilities.getWindowAncestor(mainPanel).dispose();
                 } else if (UAHRadioButton.isSelected()) {
                     JFrame detailsFrame = new JFrame("Okno ze szczegółami");
                     detailsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -87,6 +91,7 @@ public class MainPanel {
                     detailsFrame.setContentPane(detailsPanel.$$$getRootComponent$$$());
                     detailsFrame.pack();
                     detailsFrame.setVisible(true);
+                    SwingUtilities.getWindowAncestor(mainPanel).dispose();
                 } else if (AUDRadioButton.isSelected()) {
                     JFrame detailsFrame = new JFrame("Okno ze szczegółami");
                     detailsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -94,6 +99,7 @@ public class MainPanel {
                     detailsFrame.setContentPane(detailsPanel.$$$getRootComponent$$$());
                     detailsFrame.pack();
                     detailsFrame.setVisible(true);
+                    SwingUtilities.getWindowAncestor(mainPanel).dispose();
                 } else if (TRYRadioButton.isSelected()) {
                     JFrame detailsFrame = new JFrame("Okno ze szczegółami");
                     detailsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -101,6 +107,7 @@ public class MainPanel {
                     detailsFrame.setContentPane(detailsPanel.$$$getRootComponent$$$());
                     detailsFrame.pack();
                     detailsFrame.setVisible(true);
+                    SwingUtilities.getWindowAncestor(mainPanel).dispose();
                 } else {
                     JOptionPane.showMessageDialog(mainPanel, "Proszę zaznaczyć interesującą Cię walutę", "Brak zaznaczonej waluty", JOptionPane.ERROR_MESSAGE);
 

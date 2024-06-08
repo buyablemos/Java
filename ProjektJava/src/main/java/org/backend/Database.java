@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import javax.persistence.Query;
 import java.util.List;
 
 public class Database {
@@ -42,6 +43,38 @@ public class Database {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public static boolean addUser(String username, String password) {
+        try (Session session = sessionFactory.openSession()) {
+            User existingUser = session.createQuery("FROM User WHERE username = :username", User.class).setParameter("username", username).uniqueResult();
+
+
+            if (existingUser != null) {
+                return false;
+            }
+            session.beginTransaction();
+            String passwordhashed=HashPassword.hash(password);
+            User user = new User(username,passwordhashed);
+            session.save(user);
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean authenticateUser(String username, String password) {
+        try (Session session = sessionFactory.openSession()) {
+            String hashedPassword = HashPassword.hash(password);
+            return session.createQuery("FROM User WHERE username = :username AND passwordHash = :passwordHash")
+                    .setParameter("username", username).setParameter("passwordHash", hashedPassword)
+                    .uniqueResult()!=null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 

@@ -10,6 +10,7 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
     public class Chart {
@@ -37,6 +38,8 @@ import java.util.List;
 
             XYPlot plot = (XYPlot) chart.getPlot();
             DateAxis dateAxis = new DateAxis();
+            dateAxis.setLabelFont((new Font("Arial",Font.BOLD, 14)));
+            dateAxis.setLabel("Data i czas");
             plot.setDomainAxis(dateAxis);
 
             return new ChartPanel(chart);
