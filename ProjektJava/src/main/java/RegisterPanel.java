@@ -40,10 +40,28 @@ public class RegisterPanel {
                     return;
                 }
 
+                if (username.equals("")) {
+                    JOptionPane.showMessageDialog(this.panel, "Brak nazwy użytkownika", "Błąd danych", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                if (password2.equals("") || password.equals("")) {
+                    JOptionPane.showMessageDialog(this.panel, "Brak wpisanego hasła", "Błąd danych", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
                 if (Database.addUser(username, password)) {
 
                     SwingUtilities.getWindowAncestor(panel).dispose();
                     JOptionPane.showMessageDialog(this.panel, "Pomyślnie zarejestrowano użytkownika", "Pozytywna rejestracja", JOptionPane.INFORMATION_MESSAGE);
+
+                    JFrame frame = new JFrame("Ekran logowania do aplikacji");
+                    frame.setContentPane(new LoginPanel().$$$getRootComponent$$$());
+                    frame.setPreferredSize(new Dimension(800, 600));
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.pack();
+                    frame.setVisible(true);
+                    SwingUtilities.getWindowAncestor(this.panel).dispose();
                 } else {
                     JOptionPane.showMessageDialog(this.panel, "Błąd przy dodawaniu podanego użytkownika/Użytkownik może już istnieć w bazie", "Błąd rejestracji", JOptionPane.ERROR_MESSAGE);
                 }
